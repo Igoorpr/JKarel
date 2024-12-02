@@ -51,8 +51,7 @@ public class Guia0002 extends Robot {
      
    public void moveN (int vezes) {            
       
-      while ( vezes > 0 )  {           
-         // mover-se uma vez ...             
+      while ( vezes > 0 )  {                     
           move ( );                      
           vezes = vezes - 1;         
       } // end while     
@@ -100,7 +99,6 @@ public class Guia0002 extends Robot {
       
       Guia0002 JK = new Guia0002( 1, 1, World.EAST, 0 ); 
  
-     // executar acoes
      JK.moveN(1);
      JK.turnLeft(); 
      JK.moveN(8);
