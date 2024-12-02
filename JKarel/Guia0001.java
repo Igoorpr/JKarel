@@ -1,6 +1,5 @@
 import jkarel.World;
 import jkarel.Robot;
-
 import IO.*;
 
 /**   
@@ -12,15 +11,15 @@ public class Guia0001 extends Robot {
    public Guia0001( int avenue, int street, int direction, int beepers )  {      
    
       super( avenue, street, direction, beepers );     
-   
+	   
    } 
  
    public static void createWorld( String nome )  {         
-      World.reset( );      
-                                
-      World.setTrace( false );  
-		
-     //Walls NS
+		World.reset( );      
+									
+		World.setTrace( false );  
+			
+		//Walls NS
 		World.placeNSWall(1, 3, 6, World.BLACK);
 		World.placeNSWall(2, 4, 4, World.BLACK);
 		World.placeNSWall(3, 5, 2, World.BLACK);
@@ -30,6 +29,7 @@ public class Guia0001 extends Robot {
 		World.placeNSWall(5, 5, 1, World.BLACK);
 		World.placeNSWall(6, 5, 2, World.BLACK);
 		World.placeNSWall(7, 3, 5, World.BLACK);
+		
 		//Walls EW
 		World.placeEWWall(2, 2, 6, World.BLACK);
 		World.placeEWWall(3, 3, 1, World.BLACK);
@@ -39,8 +39,7 @@ public class Guia0001 extends Robot {
 		World.placeEWWall(6, 6, 1, World.BLACK);
 		World.placeEWWall(3, 7, 5, World.BLACK);
 		World.placeEWWall(2, 8, 6, World.BLACK);
-
-		// colocar marcadores
+			
 		World.placeBeepers(6, 7, 3);
 		World.placeBeepers(5, 6, 2);
 		World.placeBeepers(4, 7, 1);
@@ -62,31 +61,33 @@ public class Guia0001 extends Robot {
 		int option;
 		FILE archive = new FILE ( FILE.INPUT, filename );
 		String line;
-		int x;
-      int bps = 0;
-
+		int x, bps = 0;
+      
 		//Try to read a line
 		line = archive.readln();
+		
 		//Loop for commands quantity
 		while(!archive.eof()){
 			option = IO.getint(line);
 			//Exec
 			doCommands(option);
-         if (option == 7){
+			
+			if (option == 7){
 				bps = bps + 1;
 			}
 
 			//Try to read next line
 			line = archive.readln();
 		}
+		
 		//Close the file
 		archive.close();
-      IO.println("The robot got " + bps + " Beepers");
+		IO.println("The robot got " + bps + " Beepers");
 	}
+	
 	//Do commands
 	public void doCommands( int option){
 		switch (option){
-
 			case 0:
 				break;
 
@@ -166,18 +167,21 @@ public class Guia0001 extends Robot {
 			turnLeft();
 		}
 	}
+	
 	//Turn South
 	public void turnSouth(){
 		while(! facingSouth()){
 			turnLeft();
 		}
 	}
+	
 	//Turn East
 	public void turnEast(){
 		while(! facingEast()){
 			turnEast();
 		}
 	}
+	
 	//Turn West
 	public void turnWest(){
 		while(! facingWest()){
@@ -190,6 +194,7 @@ public class Guia0001 extends Robot {
 		turnLeft();
 		turnLeft();
 	}
+	
 	//Turn Around corner left
 	public void turnAroundCornerLeft(){
 		moveN(1);
