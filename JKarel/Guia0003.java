@@ -38,8 +38,7 @@ import jkarel.Robot;
 
            int step;     
 
-           for ( step = 1; step <= steps; step = step + 1 ) {           
-               // dar um passo              
+           for ( step = 1; step <= steps; step = step + 1 ) {                        
                 move( );         
            } // end for     
      } // end moveN( ) 
@@ -98,10 +97,8 @@ import jkarel.Robot;
        World.readWorld( "Guia0003.txt" );  
              
        Guia0003 JK = new Guia0003( 1, 1, World.EAST, 0 );
-       
-        // executar acoes         
-            JK.doTask( );   
-   
-   } // end main( ) 
+             
+       JK.doTask( );   
+      } // end main( ) 
 } // end class 
  
